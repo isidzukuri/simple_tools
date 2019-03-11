@@ -2,6 +2,9 @@
 
 Collection of architectural decisions which helps to organize code, increase readability and maintainability.
 
+TODO: write readme and wiki
+TODO: extend with other classes
+
 ## Installation
 
 Add this line to your application's Gemfile:
