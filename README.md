@@ -43,6 +43,8 @@ end
 Example of calling operation:
 ```ruby
 => result = BasicOperation.call(some_value: 100)
+# 'run some code'
+# 'run other code'
 => result.success?
 # true
 => result.context[:first_var]
@@ -51,7 +53,10 @@ Example of calling operation:
 
 `SimpleTools::Operation` respond to `.call` and can receive hash of parameters.
 Inside operation to share variables between steps use `update_context(:any_key, 'any value')` setter and `context[:any_key]` getter.
-`.call` returns object which respond to `.success?` and returns boolean value. Also `.context` method is available which retursns setted in operation values.
+
+`.call` returns object which respond to `.success?` and returns boolean value. 
+
+Also `.context` method is available which returns setted in operation values.
 
 If on some step occurs error next steps will not be invoked and current call of operation is considered as failed.
 
