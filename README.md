@@ -1,6 +1,6 @@
 # SimpleTools
 
-Colection of architectural decisions which helps to organize code, increase readability and maintainability.
+Collection of architectural decisions which helps to organize code, increase readability and maintainability.
 
 ## Installation
 
