@@ -79,6 +79,7 @@ class FailedOperation < SimpleTools::Operation
     error!(:name, 'not valid message')
     # or for multiple errors:
     # errors!({name: ['error description'])
+    p '2.1'
   end
 
   def command_three
@@ -87,12 +88,14 @@ class FailedOperation < SimpleTools::Operation
   end
 end
 ```
+`error!`, `errors!` - add new item(s) to list of errors. It do not raise exception and dont break execution of current method. 
 
 Example of calling failed operation:
 ```ruby
 => result = FailedOperation.call
 # 1
 # 2
+# 2.1
 => result.success?
 # false
 => result.errors
