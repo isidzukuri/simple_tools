@@ -2,8 +2,7 @@
 
 Collection of classes which helps to organize code, increase readability and maintainability.
 
-TODO: write readme and wiki
-TODO: extend with other classes
+TODO: write readme
 
 ## Installation
 
