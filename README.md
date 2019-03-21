@@ -1,6 +1,6 @@
 # SimpleTools
 
-Collection of architectural decisions which helps to organize code, increase readability and maintainability.
+Collection of classes which helps to organize code, increase readability and maintainability.
 
 TODO: write readme and wiki
 TODO: extend with other classes
@@ -78,7 +78,7 @@ class FailedOperation < SimpleTools::Operation
     p '2'
     error!(:name, 'not valid message')
     # or for multiple errors:
-    # errors!({name: ['error description'])
+     errors!({name: ['one more error', 'and another error'])
     p '2.1'
   end
 
@@ -99,7 +99,7 @@ Example of calling failed operation:
 => result.success?
 # false
 => result.errors
-# {name: ['error description']}
+# {name: ['error description', 'one more error', 'and another error']}
 ```
 
 
