@@ -2,8 +2,6 @@
 
 Collection of classes which helps to organize code, increase readability and maintainability.
 
-TODO: write readme
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -110,4 +108,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/simple_tools.
+Bug reports and pull requests are welcome on GitHub at https://github.com/isidzukuri/simple_tools.
