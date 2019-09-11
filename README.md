@@ -75,7 +75,7 @@ class FailedOperation < SimpleTools::Operation
     p '2'
     error!(:name, 'not valid message')
     # or for multiple errors:
-     errors!({name: ['one more error', 'and another error'])
+    errors!({name: ['one more error', 'and another error']})
     p '2.1'
   end
 
