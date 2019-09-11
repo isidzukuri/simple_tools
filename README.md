@@ -7,7 +7,7 @@ Collection of classes which helps to organize code, increase readability and mai
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simple_tools'
+gem 'simple_tools', source: 'https://github.com/isidzukuri/simple_tools'
 ```
 
 And then execute:
