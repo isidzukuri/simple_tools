@@ -23,7 +23,7 @@ Or install it yourself as:
 ### Operation
 Inspired by trailblaizer operation.
 
-Idea is to put complex task(operation) in class split it into commands(steps) and invoke each step one by one.
+Idea is to put complex task(operation) in class, split it into commands(steps) and invoke each step one by one.
 
 ```ruby
 class BasicOperation < SimpleTools::Operation
