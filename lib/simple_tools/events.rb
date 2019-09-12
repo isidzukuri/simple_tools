@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'set'
 require 'singleton'
 require 'simple_tools/events/subscriber'
