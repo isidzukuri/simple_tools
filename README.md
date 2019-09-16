@@ -102,6 +102,7 @@ Example of calling failed operation:
 => result.errors
 # {name: ['error description', 'one more error', 'and another error']}
 ```
+------
 
 
 ### Pub/Sub
@@ -151,6 +152,7 @@ Output example:
 "some_event_name"
 {:id=>11, :type=>"description of type", :some_values=>[1, 2, 3]}
 ```
+------
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
