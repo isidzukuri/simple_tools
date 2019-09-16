@@ -107,7 +107,30 @@ Example of calling failed operation:
 ### Pub/Sub
 Publish/subscribe messaging, or pub/sub messaging, is a form of asynchronous service-to-service communication. In a pub/sub model, any message published to a topic is immediately received by all of the subscribers to the topic. Pub/sub messaging can be used to enable event-driven architectures, or to decouple applications in order to increase performance, reliability and scalability.
 
+Write subscriber which will be waiting for event:
 ```ruby
+class NewSubscriber < SimpleTools::Events::Subscriber
+  def handle
+    p 'notification about event received!'
+    p event_name
+    p payload
+  end
+end
+```
+`payload`, `event_name` methods available in instance of `SimpleTools::Events::Subscriber`.
+
+Subscribe to event by name:
+```ruby
+SimpleTools::Events.subscribe('some_event_name', NewSubscriber)
+```
+
+Publish event:
+```ruby
+SimpleTools::Events.publish('some_event_name')
+
+# or with payload if required
+payload = {id: 11, type: 'description of type', some_values: [1,2,3]}
+SimpleTools::Events.publish('event_with_payload', payload)
 ```
 
 
