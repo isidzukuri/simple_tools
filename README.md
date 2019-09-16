@@ -20,6 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
+* [Operation](#Operation)
+* [Pub-Sub (Events)](#Pub-Sub)
+
+
 ### Operation
 Inspired by trailblaizer operation.
 
@@ -55,7 +59,7 @@ Example of calling operation:
 `SimpleTools::Operation` respond to `.call` and can receive hash of parameters.
 Inside operation to share variables between steps use `update_context(:any_key, 'any value')` setter and `context[:any_key]` getter.
 
-`.call` returns object which respond to `.success?` and returns boolean value. 
+`.call` returns object which respond to `.success?` and returns boolean value.
 
 Also `.context` method is available which returns setted in operation values.
 
@@ -85,7 +89,7 @@ class FailedOperation < SimpleTools::Operation
   end
 end
 ```
-`error!`, `errors!` - add new item(s) to list of errors. It do not raise exception and dont break execution of current method. 
+`error!`, `errors!` - add new item(s) to list of errors. It do not raise exception and dont break execution of current method.
 
 Example of calling failed operation:
 ```ruby
@@ -97,6 +101,15 @@ Example of calling failed operation:
 # false
 => result.errors
 # {name: ['error description', 'one more error', 'and another error']}
+```
+
+
+### Pub-Sub (events)
+Inspired by trailblaizer operation.
+
+Idea is to put complex task(operation) in class, split it into commands(steps) and invoke each step one by one.
+
+```ruby
 ```
 
 
