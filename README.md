@@ -20,6 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
+* [Operation](#Operation)
+* [Pub/Sub (Events)](#pubsub)
+
+
 ### Operation
 Inspired by trailblaizer operation.
 
@@ -55,7 +59,7 @@ Example of calling operation:
 `SimpleTools::Operation` respond to `.call` and can receive hash of parameters.
 Inside operation to share variables between steps use `update_context(:any_key, 'any value')` setter and `context[:any_key]` getter.
 
-`.call` returns object which respond to `.success?` and returns boolean value. 
+`.call` returns object which respond to `.success?` and returns boolean value.
 
 Also `.context` method is available which returns setted in operation values.
 
@@ -85,7 +89,7 @@ class FailedOperation < SimpleTools::Operation
   end
 end
 ```
-`error!`, `errors!` - add new item(s) to list of errors. It do not raise exception and dont break execution of current method. 
+`error!`, `errors!` - add new item(s) to list of errors. It do not raise exception and dont break execution of current method.
 
 Example of calling failed operation:
 ```ruby
@@ -98,8 +102,57 @@ Example of calling failed operation:
 => result.errors
 # {name: ['error description', 'one more error', 'and another error']}
 ```
+------
 
 
+### Pub/Sub
+Publish/subscribe messaging, or pub/sub messaging, is a form of service-to-service communication. In a pub/sub model, any message published to a topic is immediately received by all of the subscribers to the topic. Pub/sub messaging can be used to enable event-driven architectures, or to decouple applications in order to increase performance, reliability and scalability.
+
+Write subscriber which will be waiting for event:
+```ruby
+class NewSubscriber < SimpleTools::Events::Subscriber
+  def handle
+    p 'notification about event received!'
+    p event_name
+    p payload
+  end
+end
+```
+`payload`, `event_name` methods available in instance of `SimpleTools::Events::Subscriber`.
+
+Subscribe to event by name:
+```ruby
+SimpleTools::Events.subscribe('some_event_name', NewSubscriber)
+```
+
+Publish event:
+```ruby
+SimpleTools::Events.publish('some_event_name')
+```
+Output example:
+```
+"notification about event received!"
+"some_event_name"
+nil
+```
+Or publish event with payload if required:
+```ruby
+payload = {
+  id: 11,
+  type: 'description of type',
+  some_values: [1,2,3]
+}
+
+SimpleTools::Events.publish('some_event_name', payload)
+```
+
+Output example:
+```
+"notification about event received!"
+"some_event_name"
+{:id=>11, :type=>"description of type", :some_values=>[1, 2, 3]}
+```
+------
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
