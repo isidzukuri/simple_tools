@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 * [Operation](#Operation)
-* [Pub/Sub (Events)](#Pub/Sub)
+* [Pub/Sub (Events)](#pubsub)
 
 
 ### Operation
