@@ -17,7 +17,7 @@ module SimpleTools
 
     def self.publish(event_name, payload)
       subscribers.select(event_name).each do |subscriber|
-        subscriber.notify(event_name, payload)
+        subscriber[:subscriber_class].notify(event_name, payload)
       end
     end
   end
