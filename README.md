@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 * [Operation](#Operation)
-* [Pub/Sub (Events)](#Pub/Sub)
+* [Pub/Sub (Events)](#pubsub)
 
 
 ### Operation
@@ -102,7 +102,7 @@ Example of calling failed operation:
 => result.errors
 # {name: ['error description', 'one more error', 'and another error']}
 ```
-
+------
 
 ### Pub/Sub
 Publish/subscribe messaging, or pub/sub messaging, is a form of asynchronous service-to-service communication. In a pub/sub model, any message published to a topic is immediately received by all of the subscribers to the topic. Pub/sub messaging can be used to enable event-driven architectures, or to decouple applications in order to increase performance, reliability and scalability.
@@ -132,7 +132,7 @@ SimpleTools::Events.publish('some_event_name')
 payload = {id: 11, type: 'description of type', some_values: [1,2,3]}
 SimpleTools::Events.publish('event_with_payload', payload)
 ```
-
+------
 
 ## Development
 
