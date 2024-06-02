@@ -57,13 +57,13 @@ Example of calling operation:
 ```
 
 `SimpleTools::Operation` respond to `.call` and can receive hash of parameters.
-Inside operation to share variables between steps use `update_context(:any_key, 'any value')` setter and `context[:any_key]` getter.
+To share variables between steps inside operation use `update_context(:any_key, 'any value')` setter and `context[:any_key]` getter.
 
 `.call` returns object which respond to `.success?` and returns boolean value.
 
 Also `.context` method is available. It returns set by operation values.
 
-If on some step occurs error next steps will not be invoked and current call of operation is considered as failed.
+Next steps will not be invoked and current call of operation is considered as failed if error occurs on any of previuos steps
 
 ```ruby
 class FailedOperation < SimpleTools::Operation
@@ -108,7 +108,7 @@ Example of calling failed operation:
 ### Pub/Sub
 Publish/subscribe messaging, or pub/sub messaging, is a form of service-to-service communication. In a pub/sub model, any message published to a topic is immediately received by all of the subscribers to the topic. Pub/sub messaging can be used to enable event-driven architectures, or to decouple applications in order to increase performance, reliability and scalability.
 
-Write subscriber which will be waiting for event:
+Implement subscriber which will be waiting for event:
 ```ruby
 class NewSubscriber < SimpleTools::Events::Subscriber
   def handle
@@ -118,7 +118,7 @@ class NewSubscriber < SimpleTools::Events::Subscriber
   end
 end
 ```
-`payload`, `event_name` methods available in instance of `SimpleTools::Events::Subscriber`.
+`payload`, `event_name` methods are available in instance of `SimpleTools::Events::Subscriber`.
 
 Subscribe to event by name:
 ```ruby
