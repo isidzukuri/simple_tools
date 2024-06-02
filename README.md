@@ -61,7 +61,7 @@ Inside operation to share variables between steps use `update_context(:any_key, 
 
 `.call` returns object which respond to `.success?` and returns boolean value.
 
-Also `.context` method is available which returns setted in operation values.
+Also `.context` method is available. It returns set by operation values.
 
 If on some step occurs error next steps will not be invoked and current call of operation is considered as failed.
 
